@@ -17,8 +17,6 @@ BuildArch:	noarch
 BuildRequires:	texlive-tlpkg
 Requires(pre):	texlive-tlpkg
 Requires(post):	texlive-kpathsea
-Conflicts:	texlive-texmf <= 20110705-3
-Conflicts:	texlive-doc <= 20110705-3
 
 %description
 The design of Didot's 1805 Greek typeface was influenced by the
@@ -30,20 +28,12 @@ alphabet, and is accompanied by a matching Latin alphabet based
 on Zapf's Palatino. LaTeX support is provided, using the OT1,
 T1 and LGR encodings.
 
-%pre
-    %_texmf_mktexlsr_pre
-
 %post
-    %_texmf_mktexlsr_post
-
-%preun
-    if [ $1 -eq 0 ]; then
-	%_texmf_mktexlsr_pre
-    fi
+    %{_sbindir}/texlive.post
 
 %postun
     if [ $1 -eq 0 ]; then
-	%_texmf_mktexlsr_post
+	%{_sbindir}/texlive.post
     fi
 
 #-----------------------------------------------------------------------
@@ -178,7 +168,6 @@ T1 and LGR encodings.
 %doc %{_texmfdistdir}/doc/fonts/gfsdidot/README.TEXLIVE
 %doc %{_texmfdistdir}/doc/fonts/gfsdidot/gfsdidot.pdf
 %doc %{_texmfdistdir}/doc/fonts/gfsdidot/gfsdidot.tex
-%doc %{_tlpkgobjdir}/*.tlpobj
 
 #-----------------------------------------------------------------------
 %prep
@@ -189,5 +178,3 @@ T1 and LGR encodings.
 %install
 mkdir -p %{buildroot}%{_texmfdistdir}
 cp -fpar fonts tex doc %{buildroot}%{_texmfdistdir}
-mkdir -p %{buildroot}%{_tlpkgobjdir}
-cp -fpa tlpkg/tlpobj/*.tlpobj %{buildroot}%{_tlpkgobjdir}
