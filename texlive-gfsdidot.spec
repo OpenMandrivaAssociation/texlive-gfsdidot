@@ -1,12 +1,12 @@
-# revision 19469
+# revision 31978
 # category Package
 # catalog-ctan /fonts/greek/gfs/gfsdidot
-# catalog-date 2008-08-19 21:00:04 +0200
+# catalog-date 2013-10-23 14:01:00 +0200
 # catalog-license other-free
-# catalog-version 1.0
+# catalog-version undef
 Name:		texlive-gfsdidot
 Version:	1.0
-Release:	2
+Release:	3
 Summary:	A Greek font based on Didot's work
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/fonts/greek/gfs/gfsdidot
@@ -166,8 +166,6 @@ T1 and LGR encodings.
 %doc %{_texmfdistdir}/doc/fonts/gfsdidot/OFL.txt
 %doc %{_texmfdistdir}/doc/fonts/gfsdidot/README
 %doc %{_texmfdistdir}/doc/fonts/gfsdidot/README.TEXLIVE
-%doc %{_texmfdistdir}/doc/fonts/gfsdidot/gfsdidot.pdf
-%doc %{_texmfdistdir}/doc/fonts/gfsdidot/gfsdidot.tex
 
 #-----------------------------------------------------------------------
 %prep
@@ -178,17 +176,3 @@ T1 and LGR encodings.
 %install
 mkdir -p %{buildroot}%{_texmfdistdir}
 cp -fpar fonts tex doc %{buildroot}%{_texmfdistdir}
-
-
-%changelog
-* Wed Jan 04 2012 Paulo Andrade <pcpa@mandriva.com.br> 1.0-2
-+ Revision: 752296
-- Rebuild to reduce used resources
-
-* Sat Nov 05 2011 Paulo Andrade <pcpa@mandriva.com.br> 1.0-1
-+ Revision: 718550
-- texlive-gfsdidot
-- texlive-gfsdidot
-- texlive-gfsdidot
-- texlive-gfsdidot
-
