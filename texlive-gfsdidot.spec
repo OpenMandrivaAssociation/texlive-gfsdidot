@@ -5,8 +5,8 @@
 # catalog-license other-free
 # catalog-version undef
 Name:		texlive-gfsdidot
-Version:	1.0
-Release:	11
+Version:	20171128
+Release:	1
 Summary:	A Greek font based on Didot's work
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/fonts/greek/gfs/gfsdidot
