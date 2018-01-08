@@ -1,5 +1,5 @@
 Name:		texlive-gfsdidot
-Version:	20171128
+Version:	20171205
 Release:	1
 Summary:	A Greek font based on Didot's work
 Group:		Publishing
