@@ -3,7 +3,7 @@ Version:	69112
 Release:	1
 Summary:	A Greek font based on Didot's work
 Group:		Publishing
-URL:		http://www.ctan.org/tex-archive/fonts/greek/gfs/gfsdidot
+URL:		https://www.ctan.org/tex-archive/fonts/greek/gfs/gfsdidot
 License:	OTHER-FREE
 Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/gfsdidot.r%{version}.tar.xz
 Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/gfsdidot.doc.r%{version}.tar.xz
