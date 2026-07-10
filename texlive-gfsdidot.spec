@@ -1,53 +1,27 @@
-Name:		texlive-gfsdidot
-Version:	69112
+%global tl_name gfsdidot
+%global tl_revision 79618
+
+Name:		texlive-%{tl_name}
+Version:	%{tl_revision}
 Release:	1
-Summary:	A Greek font based on Didot's work
+Summary:	A Greek font based on Didots work
 Group:		Publishing
 URL:		https://www.ctan.org/tex-archive/fonts/greek/gfs/gfsdidot
-License:	OTHER-FREE
-Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/gfsdidot.r%{version}.tar.xz
-Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/gfsdidot.doc.r%{version}.tar.xz
+License:	other-free
+Source0:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/gfsdidot.r%{tl_revision}.tar.xz
+Source1:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/gfsdidot.doc.r%{tl_revision}.tar.xz
 BuildArch:	noarch
+BuildSystem:	texlive
 BuildRequires:	texlive-tlpkg
-Requires(pre):	texlive-tlpkg
-Requires(post):	texlive-kpathsea
+%texlive_base_requires
+Provides:	texlive(%{tl_name}) = %{tl_revision}
 
 %description
 The design of Didot's 1805 Greek typeface was influenced by the
-neoclassical ideals of the late 18th century. The font was
-brought to Greece at the time of the 1821 Greek Revolution, by
-Didot's son, and was very widely used. The present version is
-provided by the Greek Font Society. The font supports the Greek
-alphabet, and is accompanied by a matching Latin alphabet based
-on Zapf's Palatino. LaTeX support is provided, using the OT1,
-T1 and LGR encodings.
+neoclassical ideals of the late 18th century. The font was brought to
+Greece at the time of the 1821 Greek Revolution, by Didot's son, and was
+very widely used. The present version is provided by the Greek Font
+Society. The font supports the Greek alphabet, and is accompanied by a
+matching Latin alphabet based on Zapf's Palatino. LaTeX support is
+provided, using the OT1, T1, TS1, and LGR encodings.
 
-%post
-%{_sbindir}/texlive.post
-
-%postun
-if [ $1 -eq 0 ]; then
-	%{_sbindir}/texlive.post
-fi
-
-#-----------------------------------------------------------------------
-%files
-%{_texmfdistdir}/fonts/afm/public/gfsdidot
-%{_texmfdistdir}/fonts/enc/dvips/gfsdidot
-%{_texmfdistdir}/fonts/map/dvips/gfsdidot
-%{_texmfdistdir}/fonts/opentype/public/gfsdidot
-%{_texmfdistdir}/fonts/tfm/public/gfsdidot
-%{_texmfdistdir}/fonts/type1/public/gfsdidot
-%{_texmfdistdir}/fonts/vf/public/gfsdidot
-%{_texmfdistdir}/tex/latex/gfsdidot
-%doc %{_texmfdistdir}/doc/fonts/gfsdidot
-
-#-----------------------------------------------------------------------
-%prep
-%autosetup -p1 -c -a1
-
-%build
-
-%install
-mkdir -p %{buildroot}%{_texmfdistdir}
-cp -fpar fonts tex doc %{buildroot}%{_texmfdistdir}
