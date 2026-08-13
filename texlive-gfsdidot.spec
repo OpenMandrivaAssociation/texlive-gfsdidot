@@ -12,7 +12,8 @@ Source0:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/gfsdidot.r%{tl_r
 Source1:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/gfsdidot.doc.r%{tl_revision}.tar.xz
 BuildArch:	noarch
 BuildSystem:	texlive
-Provides:	texlive(%{tl_name}) = %{tl_revision}
+Requires:	texlive-tlpkg
+Provides:	texlive(%{tl_name}) = %{version}
 
 %description
 The design of Didot's 1805 Greek typeface was influenced by the
@@ -23,3 +24,10 @@ Society. The font supports the Greek alphabet, and is accompanied by a
 matching Latin alphabet based on Zapf's Palatino. LaTeX support is
 provided, using the OT1, T1, TS1, and LGR encodings.
 
+
+%install -a
+mkdir -p %{buildroot}%{_texmf_updmap_d}
+cat > %{buildroot}%{_texmf_updmap_d}/%{tl_name} <<'TL_DROPIN_EOF'
+# from gfsdidot:
+Map gfsdidot.map
+TL_DROPIN_EOF
